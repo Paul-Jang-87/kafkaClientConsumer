@@ -50,7 +50,6 @@ public class SecondversionApplication {
 					
 				}
 				consumer.commitAsync();
-				System.out.println("2");
 			}
 			
 			
