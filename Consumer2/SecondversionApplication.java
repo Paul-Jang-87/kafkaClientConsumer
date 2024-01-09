@@ -15,13 +15,11 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import reactor.core.publisher.Flux;
-
 @SpringBootApplication
 public class SecondversionApplication {
 
-	private static List<String> topicNames = List.of("firsttopic", "secondtopic", "thirdtopic","forthtopic","fifthtopic","sixthtopic");
-    private static int numberOfConsumers = 6;
+    private static List<String> topicNames = List.of("firsttopic", "secondtopic", "thirdtopic"); 
+    private static int numberOfConsumers = 3; // Change the number of consumers as needed
 
     public static void main(String[] args) {
         SpringApplication.run(SecondversionApplication.class, args);
@@ -34,15 +32,18 @@ public class SecondversionApplication {
                 Consumer<String, String> consumer = new KafkaConsumer<>(consumerProps);
 
                 consumer.subscribe(Collections.singletonList(topicNames.get(i)));
+                
                 consumers.add(consumer);
+
             }
 
-            Flux.fromIterable(consumers)
-                    .flatMap(consumer -> Flux.interval(Duration.ofMillis(500))
-                            .map(tick -> consumer.poll(Duration.ofMillis(500)))
-                            .doOnNext(records -> processRecords(records, consumer))
-                            .doOnNext(records -> consumer.commitAsync()))
-                    .blockLast(); // This will block the main thread to keep the application running
+            while (true) {
+                for (Consumer<String, String> consumer : consumers) {
+                    ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(500));
+                    processRecords(records);
+                    consumer.commitAsync();
+                }
+            }
 
         } finally {
             for (Consumer<String, String> consumer : consumers) {
@@ -65,7 +66,7 @@ public class SecondversionApplication {
         return props;
     }
 
-    private static void processRecords(ConsumerRecords<String, String> records, Consumer<String, String> consumer) {
+    private static void processRecords(ConsumerRecords<String, String> records) {
         for (ConsumerRecord<String, String> record : records) {
             String infoString = String.format("topic=%s, partition=%d, offset=%d, key=%s, value=%s\n",
                     record.topic(), record.partition(), record.offset(), record.key(), record.value());
