@@ -1,4 +1,4 @@
-package com.example.Consumer2;
+package consumer;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -18,13 +18,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import reactor.core.publisher.Flux;
 
 @SpringBootApplication
-public class SecondversionApplication {
+public class KafkaConsumerApp {
 
 	private static List<String> topicNames = List.of("firsttopic", "secondtopic", "thirdtopic","forthtopic","fifthtopic","sixthtopic");
     private static int numberOfConsumers = 6;
 
     public static void main(String[] args) {
-        SpringApplication.run(SecondversionApplication.class, args);
+        SpringApplication.run(KafkaConsumerApp.class, args);
 
         List<Consumer<String, String>> consumers = new ArrayList<>();
 
