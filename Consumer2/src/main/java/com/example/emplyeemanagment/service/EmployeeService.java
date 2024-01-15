@@ -11,10 +11,8 @@ public interface EmployeeService {
     EmployeeEntity saveEmployee(EmployeeEntity employeeEntity);
     EmployeeEntity updateEmployee(EmployeeEntity employeeEntity);
     void deleteEmployee(Long id);
-
-//    Using Request for Save and Update Employee
-//    EmployeeResponse saveEmployee(EmployeeRequest employeeRequest);
-//    EmployeeResponse updateEmployee(EmployeeRequest employeeRequest, Long id);
+    
+    
 
 
 }
