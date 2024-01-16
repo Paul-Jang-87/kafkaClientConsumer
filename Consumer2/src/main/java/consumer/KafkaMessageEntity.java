@@ -1,4 +1,5 @@
-package com.example.emplyeemanagment.entity;
+package consumer;
+
 
 
 import jakarta.persistence.Column;
@@ -23,7 +24,15 @@ public class KafkaMessageEntity {
     @Column(name = "value")
     private String value;
 
-    // Constructors, getters, and setters
+    public KafkaMessageEntity() {
+	}
+
+	public KafkaMessageEntity(Long id, String key, String value) {
+		this.id = id;
+		this.key = key;
+		this.value = value;
+		
+	}
     
     public void setKey(String key) {
 		this.key = key;
@@ -31,5 +40,13 @@ public class KafkaMessageEntity {
     
     public void setValue(String value) {
 		this.value = value;
+	}
+    
+    public String getKey() {
+		return key;
+	}
+    
+    public String getValue() {
+		return value;
 	}
 }

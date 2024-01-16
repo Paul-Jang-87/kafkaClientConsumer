@@ -9,6 +9,7 @@ import com.example.emplyeemanagment.entity.EmployeeEntity;
 import com.example.emplyeemanagment.repository.EmployeeRepository;
 import com.example.emplyeemanagment.service.EmployeeService;
 
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
@@ -32,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     public EmployeeEntity saveEmployee(EmployeeEntity employeeEntity) {
         return employeeRepository.save(employeeEntity);
     }
-
+    
     @Override
     public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
         return employeeRepository.save(employeeEntity);
@@ -42,6 +43,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
+    
+    
 
 //    Using Request and Response with save and update employee
 
