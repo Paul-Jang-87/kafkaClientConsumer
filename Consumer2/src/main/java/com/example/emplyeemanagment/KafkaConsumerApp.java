@@ -1,4 +1,4 @@
-package consumer;
+package com.example.emplyeemanagment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,6 +25,7 @@ import com.example.emplyeemanagment.entity.EmployeeEntity;
 import com.example.emplyeemanagment.service.EmployeeService;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Component
 public class KafkaConsumerApp {
@@ -37,39 +38,35 @@ public class KafkaConsumerApp {
 		
 	}
 	
-	public void startConsuming()
-	{
+	public void startConsuming() {
+        List<Consumer<String, String>> consumers = new ArrayList<>();
 
-		List<Consumer<String, String>> consumers = new ArrayList<>();
+        try {
+            for (int i = 0; i < numberOfConsumers; i++) {
+                Properties consumerProps = createConsumerProperties("group" + i);
+                Consumer<String, String> consumer = new KafkaConsumer<>(consumerProps);
+                consumer.subscribe(Collections.singletonList(topicNames.get(i)));
+                consumers.add(consumer);
+            }
 
-		try {
-			for (int i = 0; i < numberOfConsumers; i++) {
-				Properties consumerProps = createConsumerProperties("group" + i);
-				Consumer<String, String> consumer = new KafkaConsumer<>(consumerProps);
+            Flux.fromIterable(consumers)
+                    .flatMap(consumer -> Flux.interval(Duration.ofMillis(500))
+                            .map(tick -> consumer.poll(Duration.ofMillis(500)))
+                            .doOnNext(records -> processRecords(records, consumer)))
+                    .blockLast(); // You can also use .subscribe() instead of .blockLast()
 
-				consumer.subscribe(Collections.singletonList(topicNames.get(i)));
-				consumers.add(consumer);
-				
-				WebClientConnect();
-			}
-
-			Flux.fromIterable(consumers)
-					.flatMap(consumer -> Flux.interval(Duration.ofMillis(500))
-							.map(tick -> consumer.poll(Duration.ofMillis(500)))
-							.doOnNext(records -> processRecords(records, consumer))
-							.doOnNext(records -> consumer.commitAsync()))
-					.blockLast();
-
-		} finally {
-			for (Consumer<String, String> consumer : consumers) {
-				try {
-					consumer.commitSync();
-				} finally {
-					consumer.close();
-				}
-			}
-		}
-	}
+        } finally {
+            consumers.forEach(consumer -> {
+                try {
+                    consumer.commitSync();
+                } finally {
+                    consumer.close();
+                }
+            });
+        }
+    }
+	
+	
 	private static Properties createConsumerProperties(String groupId) {
 		Properties props = new Properties();
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -81,25 +78,22 @@ public class KafkaConsumerApp {
 	}
 
 	private void processRecords(ConsumerRecords<String, String> records, Consumer<String, String> consumer) {
+        Flux.fromIterable(records)
+                .doOnNext(record -> {
+                    String infoString = String.format("topic=%s, partition=%d, offset=%d, key=%s, value=%s\n",
+                            record.topic(), record.partition(), record.offset(), record.key(), record.value());
+                    System.out.println(infoString);
+                })
+                .flatMap(record -> webClientConnect())
+                .subscribe(); // Ensure to subscribe to trigger the processing
 
-
-		 for (ConsumerRecord<String, String> record : records) {
-	            String infoString = String.format("topic=%s, partition=%d, offset=%d, key=%s, value=%s\n",
-	                    record.topic(), record.partition(), record.offset(), record.key(), record.value());
-	            System.out.println(infoString);
-
-	        }
-	}
+        consumer.commitAsync();
+    }
 	
-	private void WebClientConnect() {
-		
-		// Create a WebClient
+	private Mono<EmployeeEntity> webClientConnect() {
         WebClient webClient = WebClient.create("http://localhost:8080");
-
-        // Set the URL of your endpoint
         String endpointUrl = "/employee";
 
-        // Create a test EmployeeEntity
         EmployeeEntity testEmployee = new EmployeeEntity();
         testEmployee.setName("John Doe");
         testEmployee.setGender("Male");
@@ -110,21 +104,14 @@ public class KafkaConsumerApp {
             Date dateOfBirth = dateFormat.parse("1990-01-01");
             testEmployee.setDateOfBirth(dateOfBirth);
         } catch (ParseException e) {
-            e.printStackTrace();
+            return Mono.error(e);
         }
-        
 
-        // Send the POST request using WebClient
-        EmployeeEntity responseEntity = webClient.post()
+        return webClient.post()
                 .uri(endpointUrl)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(testEmployee))
                 .retrieve()
-                .bodyToMono(EmployeeEntity.class)
-                .block();
-
-        // Print the response
-        System.out.println("Response from the server: " + responseEntity);
-		
-	}
+                .bodyToMono(EmployeeEntity.class);
+    }
 }
