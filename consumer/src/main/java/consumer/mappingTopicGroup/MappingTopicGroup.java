@@ -9,7 +9,7 @@ public class MappingTopicGroup {//홈 매핑 클래스.
     private Map<String, String> topicToGroupMapping;
 
     // Constructor to initialize data
-    public MappingTopicGroup() { 
+    public MappingTopicGroup() {
     	topicToGroupMapping = new HashMap<>();
     	topicToGroupMapping.put("firsttopic", "firstgroup");
     	topicToGroupMapping.put("secondtopic", "secondgroup");
