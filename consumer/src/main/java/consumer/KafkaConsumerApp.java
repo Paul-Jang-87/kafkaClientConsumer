@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -21,23 +22,20 @@ import reactor.core.publisher.Flux;
 @Component
 public class KafkaConsumerApp {
 
-	private static List<String> topicNames = List.of("firsttopic", "secondtopic", "thirdtopic", "forthtopic",
-			"fifthtopic", "sixthtopic",
-			"callbotfirst","callbotsecond","callbotthird","callbotforth","callbotfifth","callbotsixth"
-			);
+	private static List<String> topicNames = List.of("thirdtopic", "forthtopic", "callbotthird", "callbotforth");
 	private static int numberOfConsumers = topicNames.size();
 
-	public KafkaConsumerApp() {  
+	public KafkaConsumerApp() {
 
 	}
 
-	public void startConsuming() {   
+	public void startConsuming() {
 
 		List<Consumer<String, String>> consumers = new ArrayList<>();
-		
+
 		try {
 			MappingTopicGroup mappingData = new MappingTopicGroup();
-			
+
 			for (int i = 0; i < numberOfConsumers; i++) {
 				Properties consumerProps = createConsumerProperties(mappingData.getGroupBytopic(topicNames.get(i)));
 				Consumer<String, String> consumer = new KafkaConsumer<>(consumerProps);
@@ -73,26 +71,53 @@ public class KafkaConsumerApp {
 	}
 
 	private void processRecords(ConsumerRecords<String, String> records, Consumer<String, String> consumer) {
-		Flux.fromIterable(records).flatMap(record -> PrintingMsg(record.value())).subscribe();
+		Flux.fromIterable(records).flatMap(record -> processKafkaMessage(record, consumer)).subscribe();
 
 		consumer.commitAsync();
 	}
 
-	public Flux<String> processKafkaMessage(String msg) {
+//	public Flux<String> processKafkaMessage(String msg) {
+//		WebClient webClient = WebClient.builder().baseUrl("http://localhost:8083").build();
+//
+//		String endpointUrl = "/gcapi/post/thirdtopic";
+//
+//		return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve().bodyToMono(String.class)
+//				.flux(); 
+//	}
+
+	public Flux<String> processKafkaMessage(ConsumerRecord<String, String> record, Consumer<String, String> consumer) {
+		String topic = record.topic();
+		String msg = record.value();
+
 		WebClient webClient = WebClient.builder().baseUrl("http://localhost:8083").build();
+		String endpointUrl = "";
+		switch (topic) {
+		
+		case "thirdtopic":
 
-		String endpointUrl = "/api/receive-message";
+			endpointUrl = "/gcapi/post/"+topic;
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
 
-		return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve().bodyToMono(String.class)
-				.flux(); 
+		case "forthtopic":
+
+			endpointUrl = "/gcapi/post/"+topic;
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
+
+		default:
+			// Default case if the topic is not handled
+			return Flux.empty();
+		}
+
 	}
 
-	public  Flux<String> PrintingMsg(String msg) {
-	
-	 System.out.println(msg);
-	 
-	 return Flux.just(msg);
-		
+	public Flux<String> PrintingMsg(String msg) {
+
+		System.out.println(msg);
+
+		return Flux.just(msg);
+
 	}
 
 }
