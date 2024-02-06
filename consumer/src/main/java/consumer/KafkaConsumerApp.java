@@ -99,7 +99,7 @@ public class KafkaConsumerApp {
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 
-		case "forthtopic":
+		case "forthtopic": 
 
 			endpointUrl = "/gcapi/post/"+topic;
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
