@@ -62,11 +62,28 @@ public class KafkaConsumerApp {
 
 	private static Properties createConsumerProperties(String groupId) {
 		Properties props = new Properties();
+		
+		//sasl 설정 파트
+//		private String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required"
+//				+"username=\""
+//				+"sasl_id"       //SASL ID 기입
+//				+"\" "
+//				+"password=\""   //SASL PASSWORD 기입
+//				+"sasl_pwd"
+//				+"\";"
+//				;
+		
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+		
+		//sasl 설정 파트
+//		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,"SASL_PLAINTEXT");
+//		props.put(SaslConfigs.SASL_MECHANISM, "SCRAM-SHA-256");
+//		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
+		
 		return props;
 	}
 
