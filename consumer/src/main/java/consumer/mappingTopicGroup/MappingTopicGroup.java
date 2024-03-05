@@ -11,19 +11,13 @@ public class MappingTopicGroup {//홈 매핑 클래스.
     // Constructor to initialize data
     public MappingTopicGroup() {
     	topicToGroupMapping = new HashMap<>();
-    	topicToGroupMapping.put("firsttopic", "firstgroup");
-    	topicToGroupMapping.put("secondtopic", "secondgroup");
-    	topicToGroupMapping.put("thirdtopic", "thirdgroup");
-    	topicToGroupMapping.put("forthtopic", "forthgroup");
-    	topicToGroupMapping.put("fifthtopic", "fifthgroup");
-    	topicToGroupMapping.put("sixthtopic", "sixthgroup");
+//    	topicToGroupMapping.put("from_ucrm_citwrlscntrtsms_message", "cg_ucrm_from_ucrm_citwrlscntrtsms_message");
+//    	topicToGroupMapping.put("from_ucrm_citcablcntrtsms_message", "cg_ucrm_from_ucrm_citcablcntrtsms_message");
+    	topicToGroupMapping.put("thirdtopic", "firsttopic");
+    	topicToGroupMapping.put("forthtopic", "secondtopic");
     	
-    	topicToGroupMapping.put("callbotfirst", "callbotgroup1");
-    	topicToGroupMapping.put("callbotsecond", "callbotgroup2");
     	topicToGroupMapping.put("callbotthird", "callbotgroup3");
     	topicToGroupMapping.put("callbotforth", "callbotgroup4");
-    	topicToGroupMapping.put("callbotfifth", "callbotgroup5");
-    	topicToGroupMapping.put("callbotsixth", "callbotgroup6");
     }
 
     public String getGroupBytopic(String id) {

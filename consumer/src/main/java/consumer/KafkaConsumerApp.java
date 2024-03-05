@@ -17,11 +17,14 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import consumer.mappingTopicGroup.MappingTopicGroup;
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
+@Slf4j
 @Component
 public class KafkaConsumerApp {
 
+//	private static List<String> topicNames = List.of("from_ucrm_citwrlscntrtsms_message", "from_ucrm_citcablcntrtsms_message", "callbotthird", "callbotforth");
 	private static List<String> topicNames = List.of("thirdtopic", "forthtopic", "callbotthird", "callbotforth");
 	private static int numberOfConsumers = topicNames.size();
 
@@ -103,6 +106,8 @@ public class KafkaConsumerApp {
 //	}
 
 	public Flux<String> processKafkaMessage(ConsumerRecord<String, String> record, Consumer<String, String> consumer) {
+		
+		log.info("====== processKafkaMessage ======");
 		String topic = record.topic();
 		String msg = record.value();
 
@@ -111,14 +116,34 @@ public class KafkaConsumerApp {
 		switch (topic) {
 		
 		case "thirdtopic":
-
+			
 			endpointUrl = "/gcapi/post/"+topic;
+			log.info("API_EndPoint : {}",endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 
 		case "forthtopic": 
 
 			endpointUrl = "/gcapi/post/"+topic;
+			log.info("API_EndPoint : {}",endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
+			
+		case "callbotthird":
+
+			endpointUrl = "/apicallbot/post/"+topic;
+			log.info("API_EndPoint : {}",endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
+			
+		case "callbotforth": 
+
+			endpointUrl = "/apicallbot/post/"+topic;
+			log.info("API_EndPoint : {}",endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 
@@ -126,14 +151,6 @@ public class KafkaConsumerApp {
 			// Default case if the topic is not handled
 			return Flux.empty();
 		}
-
-	}
-
-	public Flux<String> PrintingMsg(String msg) {
-
-		System.out.println(msg);
-
-		return Flux.just(msg);
 
 	}
 

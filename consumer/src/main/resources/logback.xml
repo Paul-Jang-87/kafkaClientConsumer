@@ -5,12 +5,20 @@
 	<springProperty scope="context" name="LOG_LEVEL"
 		source="logging.level.root" />
 
-	<!-- log file path -->
-	<property name="LOG_PATH" value="D:\GitWorkSpace\consumerLog" />
+	<!-- basic log file path -->
+	<property name="LOG_PATH" value="./logs" />
+	<!-- server log file path -->
+	<property name="SERVER_LOG_PATH" value="./logs/tomcat" />
+	<!-- catalina log file name -->
+	<property name="CATALINA_LOG_FILE_NAME" value="catalina" />
+	<!-- log file storage path -->
+	<property name="STORAGE_PATH" value="./logs/log_back" />
+	<!-- error_log file path -->
+	<property name="ERR_LOG_PATH" value="./logs/error" />
 	<!-- log file name -->
-	<property name="LOG_FILE_NAME" value="logs" />
+	<property name="LOG_FILE_NAME" value="consumer" />
 	<!-- err log file name -->
-	<property name="ERR_LOG_FILE_NAME" value="err_log" />
+	<property name="ERR_LOG_FILE_NAME" value="consumer_err" />
 	<!-- pattern -->
 	<property name="LOG_PATTERN"
 		value="%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n" />
@@ -18,13 +26,37 @@
 	<!-- Console Appender -->
 	<appender name="CONSOLE"
 		class="ch.qos.logback.core.ConsoleAppender">
-		 <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>info</level>
 		</filter>
 		<encoder
 			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>${LOG_PATTERN}</pattern>
 		</encoder>
+	</appender>
+
+
+	<!-- Appender for Catalina log -->
+	<appender name="CATALINA"
+		class="ch.qos.logback.core.FileAppender">
+		<file>${SERVER_LOG_PATH}/${CATALINA_LOG_FILE_NAME}.log</file>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -
+				%msg%n</pattern>
+		</encoder>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- Daily rollover -->
+			<fileNamePattern>${SERVER_LOG_PATH}/${CATALINA_LOG_FILE_NAME}.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- 파일당 최고 용량 kb, mb, gb -->
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- Keep logs for 90 days -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
 	</appender>
 
 	<!-- File Appender -->
@@ -42,15 +74,15 @@
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- .gz,.zip 등을 넣으면 자동 일자별 로그파일 압축 -->
-			<fileNamePattern>${LOG_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log.zip
+			<fileNamePattern>${STORAGE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.tar.gz
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<!-- 파일당 최고 용량 kb, mb, gb -->
-				<maxFileSize>10MB</maxFileSize>
+				<maxFileSize>20MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 			<!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거 -->
-			<!-- <maxHistory>30</maxHistory> -->
+			<maxHistory>89</maxHistory>
 			<!--<MinIndex>1</MinIndex> <MaxIndex>10</MaxIndex> -->
 		</rollingPolicy>
 	</appender>
@@ -63,7 +95,7 @@
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
-		<file>${LOG_PATH}/${ERR_LOG_FILE_NAME}.log</file>
+		<file>${ERR_LOG_PATH}/${ERR_LOG_FILE_NAME}.log</file>
 		<encoder
 			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>${LOG_PATTERN}</pattern>
@@ -72,17 +104,18 @@
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- .gz,.zip 등을 넣으면 자동 일자별 로그파일 압축 -->
-			<fileNamePattern>${LOG_PATH}/${ERR_LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log
+			<fileNamePattern>${STORAGE_PATH}/${ERR_LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.tar.gz
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<!-- 파일당 최고 용량 kb, mb, gb -->
-				<maxFileSize>10MB</maxFileSize>
+				<maxFileSize>5MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 			<!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거 -->
-			<!-- <maxHistory>30</maxHistory> -->
+			<maxHistory>89</maxHistory>
 		</rollingPolicy>
 	</appender>
+
 
 	<!-- root레벨 설정 -->
 	<root level="${LOG_LEVEL}">
@@ -97,6 +130,16 @@
 		<appender-ref ref="FILE" />
 		<appender-ref ref="Error" />
 	</logger>
+
+	 <!-- Loggers -->
+    <logger name="org.apache.catalina" level="INFO" additivity="false">
+        <appender-ref ref="CATALINA"/>
+    </logger>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CATALINA"/>
+    </root>
 
 	<!-- log4jdbc 옵션 설정 -->
 	<logger name="jdbc" level="OFF" />
