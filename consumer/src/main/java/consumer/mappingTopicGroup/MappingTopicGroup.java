@@ -16,8 +16,6 @@ public class MappingTopicGroup {//홈 매핑 클래스.
     	topicToGroupMapping.put("thirdtopic", "firsttopic");
     	topicToGroupMapping.put("forthtopic", "secondtopic");
     	
-    	topicToGroupMapping.put("callbotthird", "callbotgroup3");
-    	topicToGroupMapping.put("callbotforth", "callbotgroup4");
     }
 
     public String getGroupBytopic(String id) {

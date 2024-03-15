@@ -24,8 +24,8 @@ import reactor.core.publisher.Flux;
 @Component
 public class KafkaConsumerApp {
 
-//	private static List<String> topicNames = List.of("from_ucrm_citwrlscntrtsms_message", "from_ucrm_citcablcntrtsms_message", "callbotthird", "callbotforth");
-	private static List<String> topicNames = List.of("thirdtopic", "forthtopic", "callbotthird", "callbotforth");
+//	private static List<String> topicNames = List.of("from_ucrm_citwrlscntrtsms_message", "from_ucrm_citcablcntrtsms_message");
+	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
 
 	public KafkaConsumerApp() {
@@ -131,22 +131,6 @@ public class KafkaConsumerApp {
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 			
-		case "callbotthird":
-
-			endpointUrl = "/apicallbot/post/"+topic;
-			log.info("API_EndPoint : {}",endpointUrl);
-			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
-			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
-					.bodyToMono(String.class).flux();
-			
-		case "callbotforth": 
-
-			endpointUrl = "/apicallbot/post/"+topic;
-			log.info("API_EndPoint : {}",endpointUrl);
-			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
-			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
-					.bodyToMono(String.class).flux();
-
 		default:
 			// Default case if the topic is not handled
 			return Flux.empty();
