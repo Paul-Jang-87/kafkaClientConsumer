@@ -6,11 +6,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.config.SaslConfigs;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -24,8 +26,8 @@ import reactor.core.publisher.Flux;
 @Component
 public class KafkaConsumerApp {
 
-//	private static List<String> topicNames = List.of("from_ucrm_citwrlscntrtsms_message", "from_ucrm_citcablcntrtsms_message");
-	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
+	private static List<String> topicNames = List.of("from_ucrm_citcablcntrtsms_message","from_ucrm_citwrlscntrtsms_message");
+//	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
 
 	public KafkaConsumerApp() {
@@ -67,25 +69,25 @@ public class KafkaConsumerApp {
 		Properties props = new Properties();
 		
 		//sasl 설정 파트
-//		private String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required"
-//				+"username=\""
-//				+"sasl_id"       //SASL ID 기입
-//				+"\" "
-//				+"password=\""   //SASL PASSWORD 기입
-//				+"sasl_pwd"
-//				+"\";"
-//				;
+		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required"
+				+"username=\""
+				+"clcc_app"       //SASL ID 기입
+				+"\" "
+				+"password=\""   
+				+"UFw6ql7sbNUofJHu"        //SASL PASSWORD 기입
+				+"\";"
+				;
 		
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.15.103:9092");
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 		
 		//sasl 설정 파트
-//		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,"SASL_PLAINTEXT");
-//		props.put(SaslConfigs.SASL_MECHANISM, "SCRAM-SHA-256");
-//		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
+		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,"SASL_PLAINTEXT");
+		props.put(SaslConfigs.SASL_MECHANISM, "SCRAM-SHA-256");
+		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
 		
 		return props;
 	}
@@ -115,7 +117,7 @@ public class KafkaConsumerApp {
 		String endpointUrl = "";
 		switch (topic) {
 		
-		case "thirdtopic":
+		case "from_ucrm_citcablcntrtsms_message":
 			
 			endpointUrl = "/gcapi/post/"+topic;
 			log.info("API_EndPoint : {}",endpointUrl);
@@ -123,7 +125,7 @@ public class KafkaConsumerApp {
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 
-		case "forthtopic": 
+		case "from_ucrm_citwrlscntrtsms_message": 
 
 			endpointUrl = "/gcapi/post/"+topic;
 			log.info("API_EndPoint : {}",endpointUrl);
