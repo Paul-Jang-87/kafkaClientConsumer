@@ -26,7 +26,10 @@ import reactor.core.publisher.Flux;
 @Component
 public class KafkaConsumerApp {
 
-	private static List<String> topicNames = List.of("from_ucrm_citcablcntrtsms_message","from_ucrm_citwrlscntrtsms_message");
+	private static List<String> topicNames = List.of("from_ucrm_citcablcntrtsms_message",
+			"from_ucrm_citwrlscntrtsms_message", 
+			"from_cscallbot_cmpnhmitem_message",
+			"from_cscallbot_cmpnmblitem_message");
 //	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
 
@@ -67,28 +70,24 @@ public class KafkaConsumerApp {
 
 	private static Properties createConsumerProperties(String groupId) {
 		Properties props = new Properties();
-		
-		//sasl 설정 파트
-		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required"
-				+"username=\""
-				+"clcc_app"       //SASL ID 기입
-				+"\" "
-				+"password=\""   
-				+"UFw6ql7sbNUofJHu"        //SASL PASSWORD 기입
-				+"\";"
-				;
-		
+
+		// SASL configuration part
+		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required" + " username="
+				+ "clcc_app" // SASL ID
+				+ " password=" + "UFw6ql7sbNUofJHu" // SASL PASSWORD
+				+ ";";
+
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.15.103:9092");
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-		
-		//sasl 설정 파트
-		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,"SASL_PLAINTEXT");
+
+		// sasl 설정 파트
+		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
 		props.put(SaslConfigs.SASL_MECHANISM, "SCRAM-SHA-256");
 		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
-		
+
 		return props;
 	}
 
@@ -108,7 +107,7 @@ public class KafkaConsumerApp {
 //	}
 
 	public Flux<String> processKafkaMessage(ConsumerRecord<String, String> record, Consumer<String, String> consumer) {
-		
+
 		log.info("====== processKafkaMessage ======");
 		String topic = record.topic();
 		String msg = record.value();
@@ -116,23 +115,39 @@ public class KafkaConsumerApp {
 		WebClient webClient = WebClient.builder().baseUrl("http://localhost:8083").build();
 		String endpointUrl = "";
 		switch (topic) {
-		
+
 		case "from_ucrm_citcablcntrtsms_message":
-			
-			endpointUrl = "/gcapi/post/"+topic;
-			log.info("API_EndPoint : {}",endpointUrl);
-			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
+
+			endpointUrl = "/gcapi/post/thirdtopic";
+			log.info("API_EndPoint : {}", endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
 
-		case "from_ucrm_citwrlscntrtsms_message": 
+		case "from_ucrm_citwrlscntrtsms_message":
 
-			endpointUrl = "/gcapi/post/"+topic;
-			log.info("API_EndPoint : {}",endpointUrl);
-			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}",topic,msg);
+			endpointUrl = "/gcapi/post/thirdtopic";
+			log.info("API_EndPoint : {}", endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
 					.bodyToMono(String.class).flux();
-			
+
+		case "from_cscallbot_cmpnhmitem_message":
+
+			endpointUrl = "/gcapi/post/forthtopic";
+			log.info("API_EndPoint : {}", endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
+
+		case "from_cscallbot_cmpnmblitem_message":
+
+			endpointUrl = "/gcapi/post/forthtopic";
+			log.info("API_EndPoint : {}", endpointUrl);
+			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
+			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
+					.bodyToMono(String.class).flux();
+
 		default:
 			// Default case if the topic is not handled
 			return Flux.empty();
