@@ -16,6 +16,7 @@ public class AppStartupRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         // Logic to run after the application has started
+    	kafkaConsumerApp.init();
         kafkaConsumerApp.startConsuming();
     }
 }

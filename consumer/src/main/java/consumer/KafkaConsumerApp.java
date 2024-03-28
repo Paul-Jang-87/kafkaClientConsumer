@@ -14,28 +14,40 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.config.SaslConfigs;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import consumer.mappingTopicGroup.MappingTopicGroup;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 @Slf4j
 @Component
+@PropertySource("classpath:application.properties")
 public class KafkaConsumerApp {
 
 	private static List<String> topicNames = List.of("from_ucrm_citcablcntrtsms_message",
-			"from_ucrm_citwrlscntrtsms_message", 
-			"from_cscallbot_cmpnhmitem_message",
+			"from_ucrm_citwrlscntrtsms_message", "from_cscallbot_cmpnhmitem_message",
 			"from_cscallbot_cmpnmblitem_message");
 //	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
+	private static String CONSUMER_IP = "";
 
 	public KafkaConsumerApp() {
 
 	}
+	
+	@Value("${consumer.ip}")
+	private  String ip;
+	
+	@PostConstruct
+    public void init() {
+		CONSUMER_IP = ip;
+    }
 
 	public void startConsuming() {
 
@@ -76,8 +88,10 @@ public class KafkaConsumerApp {
 				+ "clcc_app" // SASL ID
 				+ " password=" + "UFw6ql7sbNUofJHu" // SASL PASSWORD
 				+ ";";
-
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.15.103:9092");
+		
+		System.out.println(CONSUMER_IP);
+		
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, CONSUMER_IP);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
