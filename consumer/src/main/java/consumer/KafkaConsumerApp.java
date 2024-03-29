@@ -36,6 +36,9 @@ public class KafkaConsumerApp {
 //	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
 	private static String CONSUMER_IP = "";
+	private static String CONSUMER_SASL = "";
+	private static String CONSUMER_PROTOCAL = "";
+	private static String CONSUMER_MECHANISM = "";
 
 	public KafkaConsumerApp() {
 
@@ -43,10 +46,19 @@ public class KafkaConsumerApp {
 	
 	@Value("${consumer.ip}")
 	private  String ip;
+	@Value("${consumer.sasl}")
+	private  String sasl;
+	@Value("${consumer.protocal}")
+	private  String protocal;
+	@Value("${consumer.mechanism}")
+	private  String mechanism;
 	
 	@PostConstruct
     public void init() {
 		CONSUMER_IP = ip;
+		CONSUMER_SASL = sasl;
+		CONSUMER_PROTOCAL = protocal;
+		CONSUMER_MECHANISM = mechanism;
     }
 
 	public void startConsuming() {
@@ -54,6 +66,7 @@ public class KafkaConsumerApp {
 		List<Consumer<String, String>> consumers = new ArrayList<>();
 
 		try {
+			
 			MappingTopicGroup mappingData = new MappingTopicGroup();
 
 			for (int i = 0; i < numberOfConsumers; i++) {
@@ -84,12 +97,23 @@ public class KafkaConsumerApp {
 		Properties props = new Properties();
 
 		// SASL configuration part
-		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required" + " username="
-				+ "clcc_app" // SASL ID
-				+ " password=" + "UFw6ql7sbNUofJHu" // SASL PASSWORD
-				+ ";";
+//		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required " 
+//		+ "username=\""
+//		+ "clcc_app" // SASL ID
+//		+ "\" "
+//		+ "password=\"" 
+//		+ "UFw6ql7sbNUofJHu" // SASL PASSWORD
+//		+ "\";"
+//		;
 		
-		System.out.println(CONSUMER_IP);
+		String saslJassConfig = CONSUMER_SASL;
+		
+		log.info("verions 0.1");
+		
+		log.info("IP Address : {}",CONSUMER_IP);
+		log.info("authentication info : {}",saslJassConfig);
+		log.info("protocal : {}",CONSUMER_PROTOCAL);
+		log.info("mechanism : {}",CONSUMER_MECHANISM);
 		
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, CONSUMER_IP);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
@@ -98,10 +122,12 @@ public class KafkaConsumerApp {
 		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
 		// sasl 설정 파트
-		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
-		props.put(SaslConfigs.SASL_MECHANISM, "SCRAM-SHA-256");
+		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, CONSUMER_PROTOCAL);
+		props.put(SaslConfigs.SASL_MECHANISM, CONSUMER_MECHANISM);
 		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
-
+		
+		log.info("프롭 : {}",   props.toString() );
+		
 		return props;
 	}
 
