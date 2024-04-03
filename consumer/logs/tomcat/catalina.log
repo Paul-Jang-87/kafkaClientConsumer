@@ -10666,3 +10666,911 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'co
 				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Disconnecting from node -4 due to socket connection setup timeout. The timeout value is 9444 ms.
 2024-03-28 19:33:33 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
 				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.112:9092 (id: -4 rack: null) disconnected
+2024-04-03 11:45:19 [main] INFO  consumer.KafkaMainApplication -
+				Starting KafkaMainApplication using Java 21.0.1 with PID 13044 (D:\GitWorkSpace\kafkaClientConsumer\consumer\target\classes started by 인포전스 in D:\GitWorkSpace\kafkaClientConsumer\consumer)
+2024-04-03 11:45:19 [main] INFO  consumer.KafkaMainApplication -
+				The following 1 profile is active: "consumer"
+2024-04-03 11:45:23 [main] INFO  o.s.b.w.e.netty.NettyWebServer -
+				Netty started on port 8082
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaMainApplication -
+				Started KafkaMainApplication in 5.399 seconds (process running for 9.483)
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				IP Address : 172.23.15.103:9092
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				authentication info : org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				protocal : SASL_PLAINTEXT
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				mechanism : SCRAM-SHA-256
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				프롭 : {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=SASL_PLAINTEXT, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, enable.auto.commit=false, sasl.mechanism=SCRAM-SHA-256, group.id=cg_clcc_from_ucrm_cticablcntrtsms_message, sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";, bootstrap.servers=172.23.15.103:9092, auto.offset.reset=earliest}
+2024-04-03 11:45:23 [main] INFO  o.a.k.c.consumer.ConsumerConfig -
+				ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [172.23.15.103:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = cg_clcc_from_ucrm_cticablcntrtsms_message
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = [hidden]
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = SCRAM-SHA-256
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = SASL_PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-03 11:45:23 [main] INFO  o.a.k.c.s.a.AbstractLogin -
+				Successfully logged in.
+2024-04-03 11:45:23 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka version: 3.6.1
+2024-04-03 11:45:23 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka commitId: 5e3c2b738d253ff5
+2024-04-03 11:45:23 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka startTimeMs: 1712112323902
+2024-04-03 11:45:23 [main] INFO  o.a.k.clients.consumer.KafkaConsumer -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Subscribed to topic(s): from_ucrm_cticablcntrtsms_message
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				IP Address : 172.23.15.103:9092
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				authentication info : org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				protocal : SASL_PLAINTEXT
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				mechanism : SCRAM-SHA-256
+2024-04-03 11:45:23 [main] INFO  consumer.KafkaConsumerApp -
+				프롭 : {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=SASL_PLAINTEXT, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, enable.auto.commit=false, sasl.mechanism=SCRAM-SHA-256, group.id=cg_clcc_from_ucrm_ctiwrlscntrtsms_message, sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";, bootstrap.servers=172.23.15.103:9092, auto.offset.reset=earliest}
+2024-04-03 11:45:23 [main] INFO  o.a.k.c.consumer.ConsumerConfig -
+				ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [172.23.15.103:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = cg_clcc_from_ucrm_ctiwrlscntrtsms_message
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = [hidden]
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = SCRAM-SHA-256
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = SASL_PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka version: 3.6.1
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka commitId: 5e3c2b738d253ff5
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka startTimeMs: 1712112324025
+2024-04-03 11:45:24 [main] INFO  o.a.k.clients.consumer.KafkaConsumer -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Subscribed to topic(s): from_ucrm_ctiwrlscntrtsms_message
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				IP Address : 172.23.15.103:9092
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				authentication info : org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				protocal : SASL_PLAINTEXT
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				mechanism : SCRAM-SHA-256
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				프롭 : {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=SASL_PLAINTEXT, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, enable.auto.commit=false, sasl.mechanism=SCRAM-SHA-256, group.id=cg_clcc_from_cscallbot_cmpnhmitem_message, sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";, bootstrap.servers=172.23.15.103:9092, auto.offset.reset=earliest}
+2024-04-03 11:45:24 [main] INFO  o.a.k.c.consumer.ConsumerConfig -
+				ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [172.23.15.103:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = cg_clcc_from_cscallbot_cmpnhmitem_message
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = [hidden]
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = SCRAM-SHA-256
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = SASL_PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka version: 3.6.1
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka commitId: 5e3c2b738d253ff5
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka startTimeMs: 1712112324088
+2024-04-03 11:45:24 [main] INFO  o.a.k.clients.consumer.KafkaConsumer -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Subscribed to topic(s): from_cscallbot_cmpnhmitem_message
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				IP Address : 172.23.15.103:9092
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				authentication info : org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				protocal : SASL_PLAINTEXT
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				mechanism : SCRAM-SHA-256
+2024-04-03 11:45:24 [main] INFO  consumer.KafkaConsumerApp -
+				프롭 : {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=SASL_PLAINTEXT, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, enable.auto.commit=false, sasl.mechanism=SCRAM-SHA-256, group.id=cg_clcc_from_cscallbot_cmpnmblitem_message, sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="clcc_app" password="UFw6ql7sbNUofJHu";, bootstrap.servers=172.23.15.103:9092, auto.offset.reset=earliest}
+2024-04-03 11:45:24 [main] INFO  o.a.k.c.consumer.ConsumerConfig -
+				ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [172.23.15.103:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = cg_clcc_from_cscallbot_cmpnmblitem_message
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = [hidden]
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = SCRAM-SHA-256
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = SASL_PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka version: 3.6.1
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka commitId: 5e3c2b738d253ff5
+2024-04-03 11:45:24 [main] INFO  o.a.kafka.common.utils.AppInfoParser -
+				Kafka startTimeMs: 1712112324158
+2024-04-03 11:45:24 [main] INFO  o.a.k.clients.consumer.KafkaConsumer -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Subscribed to topic(s): from_cscallbot_cmpnmblitem_message
+2024-04-03 11:45:33 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 8517 ms.
+2024-04-03 11:45:33 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:34 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 9674 ms.
+2024-04-03 11:45:34 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:34 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 9743 ms.
+2024-04-03 11:45:34 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:35 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 10640 ms.
+2024-04-03 11:45:35 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:52 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 18945 ms.
+2024-04-03 11:45:52 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:52 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 16926 ms.
+2024-04-03 11:45:52 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:52 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 18231 ms.
+2024-04-03 11:45:52 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:45:55 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Disconnecting from node -1 due to socket connection setup timeout. The timeout value is 20543 ms.
+2024-04-03 11:45:55 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:13 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:46:13 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:13 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:13 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:13 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:13 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:14 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:14 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:14 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:16 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:46:16 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:16 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:34 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:46:34 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:34 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:34 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:34 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:34 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:35 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:35 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:35 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:37 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:46:37 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:37 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:56 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:46:56 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:56 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:56 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:56 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:56 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:56 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:46:56 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:56 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:46:59 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:46:59 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:46:59 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:18 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:47:18 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:18 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:18 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:47:18 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:18 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:18 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:47:18 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:18 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:21 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:47:21 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:21 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:40 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:47:40 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:40 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:40 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:47:40 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:40 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:40 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:47:40 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:40 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:47:42 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:47:42 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:47:42 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:02 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:48:02 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:02 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:02 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:02 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:02 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:02 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:02 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:02 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:04 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:48:04 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:04 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:24 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:48:24 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:24 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:24 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:24 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:24 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:24 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:24 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:24 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:26 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:48:26 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:26 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:46 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:48:46 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:46 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:46 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:46 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:46 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:46 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:48:46 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:46 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:48:49 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:48:49 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:48:49 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:08 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:49:08 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:08 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:08 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:08 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:08 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:08 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:08 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:08 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:11 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:49:11 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:11 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:30 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:49:30 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:30 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:30 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:30 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:30 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:30 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:30 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:30 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:33 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:49:33 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:33 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:52 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:49:52 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:52 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:52 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:52 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:52 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:52 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:49:52 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:52 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:49:55 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:49:55 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:49:55 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:14 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:50:14 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:14 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:14 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:14 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:14 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:15 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:15 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:15 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:17 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:50:17 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:17 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:36 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:50:36 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:36 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:36 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:36 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:36 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:37 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:37 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:37 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:39 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:50:39 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:39 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:58 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:50:58 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:58 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:58 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:58 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:58 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:50:59 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:50:59 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:50:59 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:01 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:51:01 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:01 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:20 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:51:20 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:20 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:20 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:51:20 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:20 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:21 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:51:21 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:21 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:23 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:51:23 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:23 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:42 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:51:42 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:42 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:42 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:51:42 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:42 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:43 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:51:43 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:43 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:51:45 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:51:45 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:51:45 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:52:04 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:52:04 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:52:04 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:52:04 [parallel-4] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Node -1 disconnected.
+2024-04-03 11:52:04 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:52:04 [parallel-4] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnmblitem_message-4, groupId=cg_clcc_from_cscallbot_cmpnmblitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:52:05 [parallel-2] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Node -1 disconnected.
+2024-04-03 11:52:05 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:52:05 [parallel-2] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_ctiwrlscntrtsms_message-2, groupId=cg_clcc_from_ucrm_ctiwrlscntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:52:07 [parallel-3] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Node -1 disconnected.
+2024-04-03 11:52:07 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:52:07 [parallel-3] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_cscallbot_cmpnhmitem_message-3, groupId=cg_clcc_from_cscallbot_cmpnhmitem_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected
+2024-04-03 11:52:26 [parallel-1] INFO  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Node -1 disconnected.
+2024-04-03 11:52:26 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Connection to node -1 (172.23.15.103/172.23.15.103:9092) could not be established. Broker may not be available.
+2024-04-03 11:52:26 [parallel-1] WARN  o.apache.kafka.clients.NetworkClient -
+				[Consumer clientId=consumer-cg_clcc_from_ucrm_cticablcntrtsms_message-1, groupId=cg_clcc_from_ucrm_cticablcntrtsms_message] Bootstrap broker 172.23.15.103:9092 (id: -1 rack: null) disconnected

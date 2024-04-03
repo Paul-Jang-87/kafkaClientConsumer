@@ -30,8 +30,8 @@ import reactor.core.publisher.Flux;
 @PropertySource("classpath:application.properties")
 public class KafkaConsumerApp {
 
-	private static List<String> topicNames = List.of("from_ucrm_citcablcntrtsms_message",
-			"from_ucrm_citwrlscntrtsms_message", "from_cscallbot_cmpnhmitem_message",
+	private static List<String> topicNames = List.of("from_ucrm_cticablcntrtsms_message",
+			"from_ucrm_ctiwrlscntrtsms_message", "from_cscallbot_cmpnhmitem_message",
 			"from_cscallbot_cmpnmblitem_message");
 //	private static List<String> topicNames = List.of("thirdtopic", "forthtopic");
 	private static int numberOfConsumers = topicNames.size();
@@ -77,8 +77,8 @@ public class KafkaConsumerApp {
 			}
 
 			Flux.fromIterable(consumers)
-					.flatMap(consumer -> Flux.interval(Duration.ofMillis(500))
-							.map(tick -> consumer.poll(Duration.ofMillis(500)))
+					.flatMap(consumer -> Flux.interval(Duration.ofMillis(250))
+							.map(tick -> consumer.poll(Duration.ofMillis(250)))
 							.doOnNext(records -> processRecords(records, consumer)))
 					.blockLast(); // You can also use .subscribe() instead of .blockLast()
 
@@ -108,8 +108,6 @@ public class KafkaConsumerApp {
 		
 		String saslJassConfig = CONSUMER_SASL;
 		
-		log.info("verions 0.1");
-		
 		log.info("IP Address : {}",CONSUMER_IP);
 		log.info("authentication info : {}",saslJassConfig);
 		log.info("protocal : {}",CONSUMER_PROTOCAL);
@@ -119,7 +117,8 @@ public class KafkaConsumerApp {
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
+		props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"latest");
 
 		// sasl 설정 파트
 		props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, CONSUMER_PROTOCAL);
@@ -158,7 +157,7 @@ public class KafkaConsumerApp {
 
 		case "from_ucrm_citcablcntrtsms_message":
 
-			endpointUrl = "/gcapi/post/thirdtopic";
+			endpointUrl = "/gcapi/post/ucrm";
 			log.info("API_EndPoint : {}", endpointUrl);
 			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
@@ -166,7 +165,7 @@ public class KafkaConsumerApp {
 
 		case "from_ucrm_citwrlscntrtsms_message":
 
-			endpointUrl = "/gcapi/post/thirdtopic";
+			endpointUrl = "/gcapi/post/ucrm";
 			log.info("API_EndPoint : {}", endpointUrl);
 			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
@@ -174,7 +173,7 @@ public class KafkaConsumerApp {
 
 		case "from_cscallbot_cmpnhmitem_message":
 
-			endpointUrl = "/gcapi/post/forthtopic";
+			endpointUrl = "/gcapi/post/callbot";
 			log.info("API_EndPoint : {}", endpointUrl);
 			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
@@ -182,7 +181,7 @@ public class KafkaConsumerApp {
 
 		case "from_cscallbot_cmpnmblitem_message":
 
-			endpointUrl = "/gcapi/post/forthtopic";
+			endpointUrl = "/gcapi/post/callbot";
 			log.info("API_EndPoint : {}", endpointUrl);
 			log.info("{} 토픽에서 컨슈머가 받은 메시지 : {}", topic, msg);
 			return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve()
