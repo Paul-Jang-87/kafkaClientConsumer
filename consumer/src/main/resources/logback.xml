@@ -74,7 +74,7 @@
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- .gz,.zip 등을 넣으면 자동 일자별 로그파일 압축 -->
-			<fileNamePattern>${STORAGE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.tar.gz
+			<fileNamePattern>${STORAGE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log.zip
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -104,7 +104,7 @@
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- .gz,.zip 등을 넣으면 자동 일자별 로그파일 압축 -->
-			<fileNamePattern>${STORAGE_PATH}/${ERR_LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.tar.gz
+			<fileNamePattern>${STORAGE_PATH}/${ERR_LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log.zip
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
