@@ -77,8 +77,8 @@ public class KafkaConsumerApp {
 			}
 			
 			Flux.fromIterable(consumers)
-			.flatMap(consumer -> Flux.interval(Duration.ofMillis(500) )
-					.map(tick -> consumer.poll(Duration.ofMillis(500)))
+			.flatMap(consumer -> Flux.interval(Duration.ofMillis(800))
+					.map(tick -> consumer.poll(Duration.ofMillis(800)))
 					.doOnNext(records -> processRecords(records, consumer)))
 			.blockLast(); 
 			
@@ -95,16 +95,6 @@ public class KafkaConsumerApp {
 
 	private static Properties createConsumerProperties(String groupId) {
 		Properties props = new Properties();
-
-		// SASL configuration part
-//		String saslJassConfig = "org.apache.kafka.common.security.scram.ScramLoginModule required " 
-//		+ "username=\""
-//		+ "clcc_app" // SASL ID
-//		+ "\" "
-//		+ "password=\"" 
-//		+ "UFw6ql7sbNUofJHu" // SASL PASSWORD
-//		+ "\";"
-//		;
 
 		String saslJassConfig = CONSUMER_SASL;
 
@@ -136,14 +126,6 @@ public class KafkaConsumerApp {
 		consumer.commitAsync();
 	}
 
-//	public Flux<String> processKafkaMessage(String msg) {
-//		WebClient webClient = WebClient.builder().baseUrl("http://localhost:8083").build();
-//
-//		String endpointUrl = "/gcapi/post/thirdtopic";
-//
-//		return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve().bodyToMono(String.class)
-//				.flux(); 
-//	}
 
 	public Flux<String> processKafkaMessage(ConsumerRecord<String, String> record, Consumer<String, String> consumer) {
 
