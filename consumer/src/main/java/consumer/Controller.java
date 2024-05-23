@@ -11,7 +11,7 @@ public class Controller {
 	
 	@GetMapping("/gethc")
 	public Mono<ResponseEntity<String>> gealthCheck() throws Exception {
-		return Mono.just(ResponseEntity.ok("TEST RESPONSE"));
+		return Mono.just(ResponseEntity.ok("TEST RESPONSE")); 
 	}
 	
 	@GetMapping("/apim-gw")
