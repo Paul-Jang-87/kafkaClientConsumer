@@ -115,8 +115,6 @@ public class KafkaConsumerApp {
 		props.put(SaslConfigs.SASL_MECHANISM, CONSUMER_MECHANISM);
 		props.put(SaslConfigs.SASL_JAAS_CONFIG, saslJassConfig);
 
-		log.info("프롭 : {}", props.toString());
-
 		return props;
 	}
 
