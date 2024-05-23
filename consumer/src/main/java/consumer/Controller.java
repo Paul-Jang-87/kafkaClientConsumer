@@ -18,7 +18,7 @@ public class Controller {
 	public Mono<ResponseEntity<String>> getHealthCheckAPIM() throws Exception {
 		return Mono.just(ResponseEntity.ok("TEST RESPONSE"));
 	}
-	
+	 
 	@GetMapping("/kafka-gw")
 	public Mono<ResponseEntity<String>> getHealthCheckKafka() throws Exception {
 		return Mono.just(ResponseEntity.ok("TEST RESPONSE"));
