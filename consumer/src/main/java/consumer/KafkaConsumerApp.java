@@ -98,10 +98,10 @@ public class KafkaConsumerApp {
 
 		String saslJassConfig = CONSUMER_SASL;
 
-		log.info("IP Address : {}", CONSUMER_IP);
-		log.info("authentication info : {}", saslJassConfig);
-		log.info("protocal : {}", CONSUMER_PROTOCAL);
-		log.info("mechanism : {}", CONSUMER_MECHANISM);
+		log.info("IP 주소 : {}", CONSUMER_IP);
+		log.info("authentication 인증 정보 : {}", saslJassConfig);
+		log.info("프로토콜 : {}", CONSUMER_PROTOCAL);
+		log.info("메커니즘 : {}", CONSUMER_MECHANISM);
 
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, CONSUMER_IP);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
@@ -167,7 +167,7 @@ public class KafkaConsumerApp {
 
 		return webClient.post().uri(endpointUrl).body(BodyInserters.fromValue(msg)).retrieve().bodyToMono(String.class)
 				.map(response -> {
-					log.info("Response from G.C API: {}", response);
+					log.info("G.C API로 부터 받은 응답: {}", response);
 					return response;
 				}).flux();
 	}

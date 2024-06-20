@@ -15,8 +15,6 @@ public class MappingTopicGroup {//홈 매핑 클래스.
     	topicToGroupMapping.put("from_ucrm_cticablcntrtsms_message", "cg_clcc_from_ucrm_cticablcntrtsms_message");
     	topicToGroupMapping.put("from_cscallbot_cmpnhmitem_message", "cg_clcc_from_cscallbot_cmpnhmitem_message");
     	topicToGroupMapping.put("from_cscallbot_cmpnmblitem_message", "cg_clcc_from_cscallbot_cmpnmblitem_message");
-//    	topicToGroupMapping.put("thirdtopic", "firsttopic");
-//    	topicToGroupMapping.put("forthtopic", "secondtopic");
     	
     }
 
