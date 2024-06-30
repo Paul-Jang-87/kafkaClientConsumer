@@ -1,5 +1,6 @@
 package consumer;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +17,7 @@ import org.apache.kafka.common.config.SaslConfigs;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.support.ResourcePropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -39,6 +41,7 @@ public class KafkaConsumerApp {
 	private static String CONSUMER_SASL = "";
 	private static String CONSUMER_PROTOCAL = "";
 	private static String CONSUMER_MECHANISM = "";
+	private static String DOMAIN = "";
 
 	public KafkaConsumerApp() {
 
@@ -52,13 +55,23 @@ public class KafkaConsumerApp {
 	private String protocal;
 	@Value("${consumer.mechanism}")
 	private String mechanism;
-
+	
 	@PostConstruct
 	public void init() {
 		CONSUMER_IP = ip;
 		CONSUMER_SASL = sasl;
 		CONSUMER_PROTOCAL = protocal;
 		CONSUMER_MECHANISM = mechanism;
+		
+		// 외부 프로퍼티 파일에서 domain 정보 가져온다. (Ex. https://gckafka.lguplus.co.kr) -- 2024.06.28 JJH
+		ResourcePropertySource rps;
+		try {
+			rps = new ResourcePropertySource("file:./logs/gc_config/gcapi_info.properties");
+			DOMAIN 	= String.valueOf(rps.getProperty("domain"));
+		} catch (IOException e) {
+			log.error(e.getMessage());
+			DOMAIN = "https://gckafka.lguplus.co.kr";
+		}
 	}
 
 	public void startConsuming() {
@@ -131,7 +144,7 @@ public class KafkaConsumerApp {
 		String topic = record.topic();
 		String msg = record.value();
 
-		WebClient webClient = WebClient.builder().baseUrl("http://localhost:8083").build();
+		WebClient webClient = WebClient.builder().baseUrl(DOMAIN + ":8083").build();
 		String endpointUrl = "";
 
 		switch (topic) {

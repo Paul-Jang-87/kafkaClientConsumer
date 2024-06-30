@@ -5,7 +5,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
-import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity; 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,8 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController 
 public class Controller {
+	
+	private static final Logger errorLogger = LoggerFactory.getLogger("ErrorLogger");
 	
 	@GetMapping("/gethc")
 	public Mono<ResponseEntity<String>> gealthCheck() throws Exception {
@@ -54,7 +58,7 @@ public class Controller {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss초");
 		log.info("{}, consumer 로그 시작",dateFormat.format(today).toString());
-	
-	}
-
+		log.error("{}, consumer_error 로그 시작",dateFormat.format(today).toString());	
+		errorLogger.error("{}, consumer_error 로그 시작",dateFormat.format(today).toString());
+    }
 }
