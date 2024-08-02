@@ -20,7 +20,7 @@ public class Controller {
 	
 	private static final Logger errorLogger = LoggerFactory.getLogger("ErrorLogger");
 	
-	@GetMapping("/gethc")
+	@GetMapping("/gethc") 
 	public Mono<ResponseEntity<String>> gealthCheck() throws Exception {
 		return Mono.just(ResponseEntity.ok("TEST RESPONSE"));                  
 	}
